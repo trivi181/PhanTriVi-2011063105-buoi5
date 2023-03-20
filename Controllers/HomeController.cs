@@ -1,16 +1,33 @@
-﻿using System;
+﻿using PhanTriVi_2011063105_buoi5.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using PhanTriVi_2011063105_buoi5.ViewModels;
 
 namespace PhanTriVi_2011063105_buoi5.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _dbContext;
+        public HomeController()
+        {
+            _dbContext = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
-            return View();
+            var upcommingCourses = _dbContext.Course
+                .Include(c => c.Lectuer)
+                .Include(c => c.Category)
+                .Where(c => c.DateTime > DateTime.Now);
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()

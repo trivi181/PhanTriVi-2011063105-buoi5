@@ -1,20 +1,71 @@
-﻿/* Set padding to keep content from hitting the edges */
-.body-content {
-    margin-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+﻿element.style {
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.navbar-inverse {
+    --bs-bg-opacity: 1;
+    background-color: rgb(8 128 55);
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.navbar-expand-sm {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+nav {
+    display: block;
+}
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(33, 37, 41);
+    text-align: center;
+    background-color: rgb(255,255,255);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+/*Course layout*/
+.course{
+    list-style:none;
+}
+    .course > li{
+        position:relative;
+        margin-bottom: 30px;
+    }
+        .course > li .date{
+            text-align:center;
+            background-color:chartreuse;
+            color:white;
+            width:60px;
+            border-radius:8px;
+        }
+        .course > li .details{
+            position: absolute;
+            top:0;
+            left:70px;
+        }
